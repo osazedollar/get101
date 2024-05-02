@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Agent Registration</title>
+</head>
+<body>
+    <section id="review" style="display: none;">
+        <h2>Review Your Information</h2>
+        <p>Please review the information you provided before submitting.</p>
+        <form id="review-form" action="/api/review" method="POST">
+            <!-- Add hidden input fields to store the form data -->
+            <input type="hidden" id="emailOrPhone" name="emailOrPhone">
+            <input type="hidden" id="location" name="location">
+            <input type="hidden" id="firstName" name="firstName">
+            <input type="hidden" id="lastName" name="lastName">
+            <input type="hidden" id="gender" name="gender">
+            <input type="hidden" id="referralCode" name="referralCode">
+            <input type="hidden" id="vehicleYear" name="vehicleYear">
+            <input type="hidden" id="vehicleManufacturer" name="vehicleManufacturer">
+            <input type="hidden" id="vehicleModel" name="vehicleModel">
+            <input type="hidden" id="licensePlate" name="licensePlate">
+            <input type="hidden" id="vehicleColor" name="vehicleColor">
+            <input type="hidden" id="driverLicense" name="driverLicense">
+            <!-- Add more hidden input fields for other form data -->
+    
+            <a href=""><button type="submit" onclick="submitForm()">Submit</button></a>
+        </form>
+    </section>
+    
+
+    <script>
+        function nextStage(nextSectionId) {
+            document.getElementById('review').style.display = 'none';
+
+            document.getElementById(nextSectionId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>

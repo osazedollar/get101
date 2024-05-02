@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Agent Registration</title>
+</head>
+<body>
+    <section id="upload-documents" style="display: none;">
+        <h2>Stage 4: Upload Documents</h2>
+        <form id="upload-documents-form" action="/api/upload-documents" method="POST">
+            <input type="file" name="ridersCard" required>
+            <input type="file" name="MOTLicense" required>
+            <input type="file" name="driverLicense" required>
+            <input type="file" name="driverProfilePhoto" required>
+            <input type="file" name="exteriorCarPhoto" required>
+            <input type="file" name="interiorCarPhoto" required>
+            <input type="file" name="proofOfCarOwnership" required>
+            <input type="file" name="certificateOfRoadworthiness" required>
+            <input type="file" name="vehicleInsuranceCertificate" required>
+            <input type="file" name="residentCard" required>
+            <input type="file" name="stateDriverInstituteRecertification" required>
+            <a href="./review.html"><button type="submit" onclick="nextStage('review')">Next</button></a>
+        </form>
+    </section>
+
+    
+
+    <script>
+        function nextStage(nextSectionId) {
+            document.getElementById('upload-documents').style.display = 'none';
+            
+            document.getElementById(nextSectionId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Agent Registration</title>
+</head>
+<body>
+    <!-- HTML code for signup form -->
+<section id="signup">
+    <h2>Stage 1: Sign Up</h2>
+    <form id="signup-form" action="/api/signup" method="POST">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required><br><br>
+
+        <label for="Phone">Phone:</label>
+        <input type="text" id="Phone" name="Phone" required><br><br>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required><br><br>
+
+        <input type="checkbox" id="privacyCheckbox" name="privacyCheckbox" required>
+        <label for="privacyCheckbox">I agree to the privacy policy</label><br><br>
+
+        <!-- Add an ID to the button for easier access in JavaScript -->
+        <button type="submit" id="signup-button">Next</button>
+    </form>
+</section>
+
+<script>
+    // Function to handle form submission
+    document.getElementById('signup-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        
+        // Fetch the form data
+        const formData = new FormData(this);
+        
+        // Send a POST request to the backend
+        fetch('/api/signup', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                // If signup is successful, navigate to the next stage
+                window.location.href = './personal-info.html'; // Redirect to the next stage
+            } else {
+                // If signup fails, display an error message
+                alert('Signup failed. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again later.');
+        });
+    });
+</script>
+
+
+</body>
+</html>

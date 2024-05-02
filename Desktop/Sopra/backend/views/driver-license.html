@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Agent Registration</title>
+</head>
+<body>
+
+    <section id="driver-license" style="display: none;">
+        <h2>Stage 3: Driver License or JTB Form Number</h2>
+        <form id="driver-license-form" action="/api/driver-license" method="POST">
+            <label for="driver-license">Driver License or JTB Form Number:</label>
+            <input type="text" id="driver-license" name="driver-license" required><br><br>
+
+            <button type="submit" onclick="nextStage('upload-documents')">Next</button>
+        </form>
+    </section>
+
+    <section id="upload-documents" style="display: none;">
+        <h2>Stage 4: Upload Documents</h2>
+        <form id="upload-documents-form" action="/api/driver-license" method="POST">
+            <input type="file" name="ridersCard">
+            <input type="file" name="MOTLicense">
+            <input type="file" name="driverLicense">
+            <input type="file" name="driverProfilePhoto">
+            <input type="file" name="exteriorCarPhoto">
+            <input type="file" name="interiorCarPhoto">
+            <input type="file" name="proofOfCarOwnership">
+            <input type="file" name="certificateOfRoadworthiness">
+            <input type="file" name="vehicleInsuranceCertificate">
+            <input type="file" name="residentCard">
+            <input type="file" name="stateDriverInstituteRecertification">
+            <a href="./upload-documents.html"><button type="submit" onclick="nextStage('review')">Next</button></a>
+        </form>
+    </section>
+
+    
+
+    <script>
+        function nextStage(nextSectionId) {
+            document.getElementById('driver-license').style.display = 'none';
+            
+            document.getElementById(nextSectionId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
