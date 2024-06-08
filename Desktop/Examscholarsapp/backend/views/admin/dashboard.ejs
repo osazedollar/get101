@@ -1,0 +1,26 @@
+<!-- views/admin/dashboard.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    <!-- Display list of users -->
+    <h2>Users</h2>
+    <ul>
+        <% users.forEach(user => { %>
+            <li>
+                <%= user.name %> - <%= user.email %>
+                <form method="POST" action="/admin/users/<%= user._id %>?_method=DELETE">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
